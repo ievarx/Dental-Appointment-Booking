@@ -1,0 +1,14 @@
+CREATE DATABASE dentist_appointments;
+USE dentist_appointments;
+CREATE TABLE appointments (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    date DATE NOT NULL,
+    time TIME NOT NULL,
+    name VARCHAR(255) NOT NULL,
+    age INT NOT NULL,
+    gender ENUM('male', 'female') NOT NULL,
+    phone VARCHAR(20) NOT NULL,
+    email VARCHAR(255),
+    address VARCHAR(255) NOT NULL,
+    appointment_type VARCHAR(255) NOT NULL
+);

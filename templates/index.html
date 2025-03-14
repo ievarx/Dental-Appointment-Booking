@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>حجز موعد طبيب الأسنان</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #282c34;
+            /* لون خلفية الصفحة */
+            color: #ffffff;
+            /* لون النص */
+        }
+
+        h1 {
+            text-align: center;
+            color: #61dafb;
+            /* لون العنوان */
+        }
+
+        form {
+            max-width: 500px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            /* لون خلفية نموذج الحجز */
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+            /* لون النص */
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #61dafb;
+            /* لون زر الحجز */
+            color: #ffffff;
+            /* لون النص على زر الحجز */
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+            /* لون زر الحجز عند التحوي والتحريك */
+        }
+
+        .alert {
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 1px solid transparent;
+            border-radius: 4px;
+            background-color: #dff0d8;
+            /* لون خلفية رسالة الفلاش */
+            color: #3c763d;
+            /* لون النص في رسالة الفلاش */
+        }
+    </style>
+</head>
+
+<body>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    {% for category, message in messages %}
+    <div class="alert alert-{{ category }}">
+        {{ message }}
+    </div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+
+    <h1>حجز موعد طبيب الأسنان</h1>
+    <form action="/add_appointment" method="post">
+        <label for="date">التاريخ:</label>
+        <input type="date" id="date" name="date" required><br><br>
+
+        <label for="time">الوقت:</label>
+        <input type="time" id="time" name="time" required><br><br>
+
+        <label for="name">الاسم:</label>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="age">العمر:</label>
+        <input type="number" id="age" name="age" required><br><br>
+
+        <label for="gender">الجنس:</label>
+        <select id="gender" name="gender" required>
+            <option value="male">ذكر</option>
+            <option value="female">أنثى</option>
+        </select><br><br>
+
+        <label for="phone">رقم الهاتف:</label>
+        <input type="tel" id="phone" name="phone" required><br><br>
+
+        <label for="email">البريد الإلكتروني:</label>
+        <input type="email" id="email" name="email"><br><br>
+
+        <label for="address">العنوان:</label>
+        <input type="text" id="address" name="address" required><br><br>
+
+        <label for="appointment_type">نوع الموعد:</label>
+        <input type="text" id="appointment_type" name="appointment_type" required><br><br>
+
+        <input type="submit" value="حجز الموعد">
+    </form>
+</body>
+
+</html>
