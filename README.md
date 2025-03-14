@@ -19,7 +19,7 @@ This repository contains the **Dental Appointment Booking System**, a **web-base
 #### **⚙️ How to Install & Run:**  
 1. **Clone the repository:**  
    ```bash
-   git clone https://github.com/yourusername/Dental-Appointment-Booking.git
+   git clone https://github.com/ievarx/Dental-Appointment-Booking.git
    ```  
 2. **Install dependencies:**  
    Run the following command:  
